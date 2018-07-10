@@ -10,22 +10,26 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft
+NAME = libft.a
 CC = gcc
 CFLAGS = -c -Wall -Wextra -Werror
 SRCS = $(wildcard ./srcs/*.c)
-OBJS = *.o
-HEADER = ./includes/libft.h
+OBJ = *.o
+
+AR = ar
+ARFLAGS = rc
 
 $(NAME): 
-	$(CC) $(CFLAGS) $(SRCS)
-	ar rc libft.a *.o
-	ranlib libft.a
+	@$(CC) $(CFLAGS) $(SRCS)
+	@$(AR) $(ARFLAGS) $(NAME) $(OBJ)
+	@ranlib $(NAME)
 
 make: $(NAME)
 
 clean:
-	rm $(OBJS)
+	@rm -f $(OBJ)
 
-fclean:
-	rm $(NAME)
+fclean: clean
+	@rm -f $(NAME)
+
+re: fclean $(NAME)
