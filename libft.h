@@ -31,5 +31,4 @@ char	*ft_strcpy(char *dst, const char *src);
 char	*ft_strcat(char *s1, const char *s2);
 char	*ft_itoa(int n);
 
-
 #endif
