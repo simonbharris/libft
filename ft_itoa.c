@@ -39,13 +39,29 @@ static char	*get_pnbr(int nbr)
 	return (out);
 }
 
+static int get_alloc_size(int nbr)
+{
+	int		digitpos = 1000000000;
+	int		i;
+
+	while (digitpos != 0 && nbr / digitpos == 0)
+	{
+		digitpos /= 10;
+		i--;
+	}
+	if (nbr < 0)
+		return (i + 1);
+	return (i);
+}
+
 char		*ft_itoa(int n)
 {
 	char	*str;
 	int		i;
 
 	i = 0;
-	str = (char *)malloc(sizeof(char) * 12);
+	if (NULL == (str = (char *)malloc(sizeof(char) * (get_alloc_size(n) + 1))))
+		return (NULL);
 	if (n == -2147483648)
 		ft_strcpy(&(*str), "-2147483648");
 	else
@@ -56,7 +72,7 @@ char		*ft_itoa(int n)
 			n *= -1;
 		}
 		ft_strcat(str, get_pnbr(n));
-		str[11] = '\0';
+		str[12] = '\0';
 	}
 	return (str);
 }
