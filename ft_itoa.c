@@ -56,6 +56,7 @@ char		*ft_itoa(int n)
 			n *= -1;
 		}
 		ft_strcat(str, get_pnbr(n));
+		str[11] = '\0';
 	}
 	return (str);
 }
