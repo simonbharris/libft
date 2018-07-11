@@ -12,34 +12,11 @@
 
 #include "../includes/libft.h"
 
-static char *get_pnbr(int nbr);
-
-char	*ft_itoa(int n)
+static char	*get_pnbr(int nbr)
 {
-	char *str;
-	int i;
-
-	i = 0;
-	str = (char *)malloc(sizeof(char) * 12);
-	if (n == -2147483648)
-		ft_strcpy(&(*str), "-2147483648");
-	else
-	{
-		if (n < 0)
-		{
-			str[i++] = '-';
-			n *= -1;
-		}
-		ft_strcat(str, get_pnbr(n));
-	}
-	return (str);
-}
-
-static char *get_pnbr(int nbr)
-{
-	int digitpos;
-	int i;
-	char *out;
+	int		digitpos;
+	int		i;
+	char	*out;
 
 	i = 10;
 	digitpos = 1000000000;
@@ -60,4 +37,25 @@ static char *get_pnbr(int nbr)
 		}
 	out[i] = '\0';
 	return (out);
+}
+
+char		*ft_itoa(int n)
+{
+	char	*str;
+	int		i;
+
+	i = 0;
+	str = (char *)malloc(sizeof(char) * 12);
+	if (n == -2147483648)
+		ft_strcpy(&(*str), "-2147483648");
+	else
+	{
+		if (n < 0)
+		{
+			str[i++] = '-';
+			n *= -1;
+		}
+		ft_strcat(str, get_pnbr(n));
+	}
+	return (str);
 }
