@@ -25,7 +25,8 @@ static char	*get_pnbr(int nbr)
 		digitpos /= 10;
 		i--;
 	}
-	out = (char *)malloc(sizeof(char) * (i + 1));
+	if (NULL == (out = ft_memalloc(i + 1)))
+		return (NULL);
 	i = 0;
 	if (digitpos == 0)
 		out[i++] = '0';
@@ -44,14 +45,15 @@ static int get_alloc_size(int nbr)
 	int		digitpos = 1000000000;
 	int		i;
 
+	i = 10;
 	while (digitpos != 0 && nbr / digitpos == 0)
 	{
 		digitpos /= 10;
 		i--;
 	}
 	if (nbr < 0)
-		return (i + 1);
-	return (i);
+		return (i + 2);
+	return (i + 1);
 }
 
 char		*ft_itoa(int n)
@@ -60,7 +62,7 @@ char		*ft_itoa(int n)
 	int		i;
 
 	i = 0;
-	if (NULL == (str = (char *)malloc(sizeof(char) * (get_alloc_size(n) + 1))))
+	if (NULL == (str = ft_memalloc(get_alloc_size(n))))
 		return (NULL);
 	if (n == -2147483648)
 		ft_strcpy(&(*str), "-2147483648");
