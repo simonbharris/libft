@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-char *ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char *out;
-	int i;
+	char	*out;
+	int		i;
 
 	i = 0;
 	if (NULL == (out = ft_strnew((ft_strsize(s1) +
