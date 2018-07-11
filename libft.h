@@ -31,7 +31,15 @@ char	*ft_strcpy(char *dst, const char *src);
 char	*ft_strcat(char *s1, const char *s2);
 char	*ft_itoa(int n);
 
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+void	ft_striter(char *s, void (*f)(char *));
+char	*strmap(char const *s, char(*f)(char));
+
 void	*ft_memset(void *b, int c, size_t len);
 void	*ft_memalloc(size_t size);
+void	ft_memdel(void **ap);
+
+char	*ft_strnew(size_t size);
+void	ft_strclr(char *s);
 
 #endif
