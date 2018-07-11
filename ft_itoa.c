@@ -40,11 +40,12 @@ static char	*get_pnbr(int nbr)
 	return (out);
 }
 
-static int get_alloc_size(int nbr)
+static int	get_alloc_size(int nbr)
 {
-	int		digitpos = 1000000000;
+	int		digitpos;
 	int		i;
 
+	digitpos = 1000000000;
 	i = 10;
 	while (digitpos != 0 && nbr / digitpos == 0)
 	{
