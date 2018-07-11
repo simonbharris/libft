@@ -5,15 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sharris <sharris@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/09 15:16:49 by sharris           #+#    #+#             */
-/*   Updated: 2018/07/09 15:16:49 by sharris          ###   ########.fr       */
+/*   Created: 2018/07/09 21:37:09 by sharris           #+#    #+#             */
+/*   Updated: 2018/07/09 21:37:09 by sharris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-void	ft_putstr(char const *s)
+char	*ft_strcat(char *s1, const char *s2)
 {
-	while (*s)
-		ft_putchar(*s++);
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	while (s1[i])
+		i++;
+	while (s2[j])
+	{
+		s1[i + j] = s2[j];
+		j++;
+	}
+	return (s1);
 }

@@ -5,26 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sharris <sharris@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/09 21:37:09 by sharris           #+#    #+#             */
-/*   Updated: 2018/07/09 21:37:09 by sharris          ###   ########.fr       */
+/*   Created: 2018/07/09 21:03:08 by sharris           #+#    #+#             */
+/*   Updated: 2018/07/09 21:03:08 by sharris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-char	*ft_strcat(char *s1, const char *s2)
+char	*ft_strcpy(char *dst, const char *src)
 {
 	int i;
-	int j;
 
-	i = 0;
-	j = 0;
-	while (s1[i])
-		i++;
-	while (s2[j])
-	{
-		s1[i + j] = s2[j];
-		j++;
-	}
-	return (s1);
+	i = -1;
+	while (src[++i])
+		dst[i] = src[i];
+	dst[i] = '\0';
+	return (dst);
 }

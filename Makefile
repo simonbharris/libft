@@ -13,7 +13,7 @@
 NAME = libft.a
 CC = gcc
 CFLAGS = -c -Wall -Wextra -Werror
-SRCS = $(wildcard ./srcs/*.c)
+SRCS = *.c
 OBJ = *.o
 
 AR = ar

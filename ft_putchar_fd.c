@@ -5,20 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sharris <sharris@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/09 21:03:08 by sharris           #+#    #+#             */
-/*   Updated: 2018/07/09 21:03:08 by sharris          ###   ########.fr       */
+/*   Created: 2018/07/09 20:12:40 by sharris           #+#    #+#             */
+/*   Updated: 2018/07/09 20:12:40 by sharris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-char	*ft_strcpy(char *dst, const char *src)
+void	ft_putchar_fd(char c, int fd)
 {
-	int i;
-
-	i = -1;
-	while (src[++i])
-		dst[i] = src[i];
-	dst[i] = '\0';
-	return (dst);
+	write(fd, &c, 1);
 }

@@ -5,14 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sharris <sharris@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/09 20:12:40 by sharris           #+#    #+#             */
-/*   Updated: 2018/07/09 20:12:40 by sharris          ###   ########.fr       */
+/*   Created: 2018/07/09 15:16:49 by sharris           #+#    #+#             */
+/*   Updated: 2018/07/09 15:16:49 by sharris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+void	ft_putstr(char const *s)
 {
-	write(fd, &c, 1);
+	while (*s)
+		ft_putchar(*s++);
 }
