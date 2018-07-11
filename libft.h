@@ -34,6 +34,9 @@ char	*ft_itoa(int n);
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 void	ft_striter(char *s, void (*f)(char *));
 char	*strmap(char const *s, char(*f)(char));
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+int		ft_strequ(char const *s1, char const *s2);
+int		ft_strnequ(char const *s1, char const *s2, size_t n);
 
 void	*ft_memset(void *b, int c, size_t len);
 void	*ft_memalloc(size_t size);
