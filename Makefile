@@ -33,3 +33,5 @@ fclean: clean
 	@rm -f $(NAME)
 
 re: fclean $(NAME)
+
+all: clean re
