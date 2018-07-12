@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char	*strmap(char const *s, char (*f)(char))
+char	*ft_strmap(char const *s, char (*f)(char))
 {
 	int		size;
 	int		i;
@@ -22,7 +22,8 @@ char	*strmap(char const *s, char (*f)(char))
 	size = 0;
 	while (s[size])
 		size++;
-	out = ft_strnew(size);
+	if (NULL == (out = ft_strnew(size)))
+		return (NULL);
 	while (i < size)
 	{
 		out[i] = f(s[i]);
