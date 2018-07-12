@@ -12,34 +12,6 @@
 
 #include "libft.h"
 
-static char	*get_pnbr(int nbr)
-{
-	int		digitpos;
-	int		i;
-	char	*out;
-
-	i = 10;
-	digitpos = 1000000000;
-	while (digitpos != 0 && nbr / digitpos == 0)
-	{
-		digitpos /= 10;
-		i--;
-	}
-	if (NULL == (out = ft_memalloc(i + 1)))
-		return (NULL);
-	i = 0;
-	if (digitpos == 0)
-		out[i++] = '0';
-	else
-		while (digitpos > 0)
-		{
-			out[i++] = ((nbr / digitpos) % 10 + '0');
-			digitpos /= 10;
-		}
-	out[i] = '\0';
-	return (out);
-}
-
 static int	get_alloc_size(int nbr)
 {
 	int		digitpos;
@@ -52,9 +24,20 @@ static int	get_alloc_size(int nbr)
 		digitpos /= 10;
 		i--;
 	}
-	if (nbr < 0)
+	if (nbr <= 0)
 		return (i + 2);
 	return (i + 1);
+}
+
+static int	check_neg_make_abs(int *n)
+{
+	if (*n < 0)
+	{
+		*n *= -1;
+		return (1);
+	}
+	else
+		return (0);
 }
 
 char		*ft_itoa(int n)
@@ -69,13 +52,19 @@ char		*ft_itoa(int n)
 		ft_strcpy(&(*str), "-2147483648");
 	else
 	{
-		if (n < 0)
+		i = get_alloc_size(n) - 1;
+		if (n == 0)
+			str[0] = '0';
+		else
 		{
-			str[i++] = '-';
-			n *= -1;
+			if (check_neg_make_abs(&n))
+				str[0] = '-';
+			while (n > 0)
+			{
+				str[--i] = ((n % 10) + '0');
+				n /= 10;
+			}
 		}
-		ft_strcat(str, get_pnbr(n));
-		str[12] = '\0';
 	}
 	return (str);
 }
