@@ -15,12 +15,13 @@ CC = gcc
 CFLAGS = -c -Wall -Wextra -Werror
 SRCS = $(wildcard *.c)
 OBJ = $(SRCS:.c=.o)
+HEADER = ./libft.h
 
 AR = ar
 ARFLAGS = rc
 
 $(NAME): 
-	$(CC) $(CFLAGS) $(SRCS)
+	$(CC) $(CFLAGS) $(SRCS) -I $(HEADER)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJ)
 	ranlib $(NAME)
 
