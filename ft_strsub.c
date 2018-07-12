@@ -21,7 +21,10 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	if (NULL == (sub = ft_strnew(len)))
 		return (NULL);
 	while (i < len)
+	{
 		sub[i] = s[start + i];
+		i++;
+	}
 	sub[i] = '\0';
 	return (sub);
 }
