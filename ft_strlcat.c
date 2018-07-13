@@ -14,10 +14,10 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	char *d;
-	const char *s;
-	size_t n;
-	size_t dlen;
+	char		*d;
+	const char	*s;
+	size_t		n;
+	size_t		dlen;
 
 	d = dst;
 	s = src;
@@ -38,5 +38,5 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 		s++;
 	}
 	*d = '\0';
-	return(dlen + (s - src));
+	return (dlen + (s - src));
 }

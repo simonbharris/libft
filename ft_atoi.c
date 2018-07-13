@@ -28,8 +28,8 @@ int		ft_atoi(const char *str)
 		is_neg = 1;
 	if (*str == '-' || *str == '+')
 		str++;
-	if (ft_isdigit((int) *str))
-		while (ft_isdigit((int) *str))
+	if (ft_isdigit((int)*str))
+		while (ft_isdigit((int)*str))
 		{
 			res *= 10;
 			res += *str++ - '0';

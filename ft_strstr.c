@@ -14,21 +14,21 @@
 
 char	*ft_strstr(const char *haystack, const char *needle)
 {
-	char *seek;
-	int i;
+	char	*seek;
+	int		i;
 
 	if (needle[0] == '\0')
-		return ((char *) haystack);
+		return ((char *)haystack);
 	while (*haystack)
 	{
 		if (*haystack == *needle)
 		{
 			i = 0;
-			seek = (char *) haystack;
+			seek = (char *)haystack;
 			while (seek[i] == needle[i] && seek[i] && needle[i])
 				i++;
 			if (needle[i] == '\0')
-				return ((char *) haystack);
+				return ((char *)haystack);
 		}
 		haystack++;
 	}
