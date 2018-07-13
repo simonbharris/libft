@@ -21,6 +21,7 @@ char	*ft_strrchr(const char *s, int c)
 	{
 		if (*s == (char) c)
 			hold = (char *) s;
+		s++;
 	}
 	if (c == 0)
 		return ((char *) s);

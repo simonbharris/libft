@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sharris <sharris@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/12 14:23:34 by sharris           #+#    #+#             */
-/*   Updated: 2018/07/12 14:23:34 by sharris          ###   ########.fr       */
+/*   Created: 2018/07/12 21:02:38 by sharris           #+#    #+#             */
+/*   Updated: 2018/07/12 21:02:38 by sharris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int		ft_strcmp(const char *s1, const char *s2)
 {
-	char	*out;
-	int		i;
+	unsigned char *u1;
+	unsigned char *u2;
 
-	i = 0;
-	if (NULL == (out = ft_strnew((ft_strlen(s1) +
-		ft_strlen(s2)))))
-		return (NULL);
-	while (*s1)
-		out[i++] = *s1++;
-	while (*s2)
-		out[i++] = *s2++;
-	out[i] = '\0';
-	return (out);
+	u1 = (unsigned char *) s1;
+	u2 = (unsigned char *) s2;
+	while (*u1 && *u2)
+	{
+		if (*u1 != *u2)
+			return ((int) (*u1 - *u2));
+		u1++;
+		u2++;
+	}
+	return ((int) (*u1 - *u2));
 }

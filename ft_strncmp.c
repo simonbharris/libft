@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsize.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sharris <sharris@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/11 14:39:26 by sharris           #+#    #+#             */
-/*   Updated: 2018/07/11 14:39:26 by sharris          ###   ########.fr       */
+/*   Created: 2018/07/12 21:20:02 by sharris           #+#    #+#             */
+/*   Updated: 2018/07/12 21:20:02 by sharris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strsize(char const *str)
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t i;
+	unsigned char *u1;
+	unsigned char *u2;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	u1 = (unsigned char *) s1;
+	u2 = (unsigned char *) s2;
+	while (n-- > 0 && *u1 && *u2)
+	{
+		if (*u1 != *u2)
+			return ((int) (*u1 - *u2));
+		u1++;
+		u2++;
+	}
+	return ((int) (*u1 - *u2));
 }

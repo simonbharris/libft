@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sharris <sharris@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/12 14:23:34 by sharris           #+#    #+#             */
-/*   Updated: 2018/07/12 14:23:34 by sharris          ###   ########.fr       */
+/*   Created: 2018/07/12 20:33:53 by sharris           #+#    #+#             */
+/*   Updated: 2018/07/12 20:33:53 by sharris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strstr(const char *haystack, const char *needle)
 {
-	char	*out;
-	int		i;
+	char *seek;
+	int i;
 
-	i = 0;
-	if (NULL == (out = ft_strnew((ft_strlen(s1) +
-		ft_strlen(s2)))))
-		return (NULL);
-	while (*s1)
-		out[i++] = *s1++;
-	while (*s2)
-		out[i++] = *s2++;
-	out[i] = '\0';
-	return (out);
+	if (needle[0] == '\0')
+		return ((char *) haystack);
+	while (*haystack)
+	{
+		if (*haystack == *needle)
+		{
+			i = 0;
+			seek = (char *) haystack;
+			while (seek[i] == needle[i] && seek[i] && needle[i])
+				i++;
+			if (needle[i] == '\0')
+				return ((char *) haystack);
+		}
+		haystack++;
+	}
+	return (NULL);
 }
