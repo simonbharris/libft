@@ -50,7 +50,7 @@ char		**ft_strsplit(char const *s, char c)
 	int		sc;
 
 	sc = 0;
-	if (NULL == (split = (char **)ft_memalloc(sizeof(char *)
+	if (!s || NULL == (split = (char **)ft_memalloc(sizeof(char *)
 		* (get_split_count(s, c) + 1))))
 		return (NULL);
 	while (*s)

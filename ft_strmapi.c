@@ -20,6 +20,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	i = 0;
 	size = 0;
+	if (!s)
+		return (NULL);
 	while (s[size])
 		size++;
 	if (NULL == (out = ft_strnew(size)))

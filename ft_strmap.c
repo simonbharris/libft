@@ -20,14 +20,18 @@ char	*ft_strmap(char const *s, char (*f)(char))
 
 	i = 0;
 	size = 0;
-	while (s[size])
-		size++;
-	if (NULL == (out = ft_strnew(size)))
-		return (NULL);
-	while (i < size)
+	out = NULL;
+	if (s)
 	{
-		out[i] = f(s[i]);
-		i++;
+		while (s[size])
+			size++;
+		if (NULL == (out = ft_strnew(size)))
+			return (NULL);
+		while (i < size)
+		{
+			out[i] = f(s[i]);
+			i++;
+		}
 	}
 	return (out);
 }
