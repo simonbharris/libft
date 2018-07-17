@@ -88,5 +88,10 @@ t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 int				ft_islower(int c);
 int				ft_isupper(int c);
+int				ft_iswhitespace(char c);
+int				ft_wordcount(char *s);
+int				ft_lstcount(t_list *lst);
+int				ft_abs(int n);
+void			*ft_realloc(void **ptr, size_t old_size, size_t new_size);
 
 #endif
