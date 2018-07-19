@@ -14,17 +14,18 @@ NAME = libft.a
 CC = gcc
 CFLAGS = -c -Wall -Wextra -Werror
 SRCS = $(wildcard *.c)
-OBJ = $(SRCS:.c=.o)
+OBJ = $(SRCS:%.c=%.o)
 HEADER = ./libft.h
 
 AR = ar
-ARFLAGS = rc
+ARFLAGS = rcs
 
-$(NAME): 
-	$(CC) $(CFLAGS) $(SRCS) -I $(HEADER)
+$(NAME): $(OBJ)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJ)
-	ranlib $(NAME)
 
+$(OBJ): $(SRCS)
+	$(CC) $(CFLAGS) $(SRCS) -I $(HEADER)
+	
 all: $(NAME)
 
 clean:
