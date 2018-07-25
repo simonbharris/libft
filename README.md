@@ -13,3 +13,5 @@ Allowed functions for this project were only: write(), malloc(), and free(). Eve
 A system called Norminette enforces a certain coding convention so that all code between students is easily readable for peer-review purposes, in addition to challenging our creativity in developing solutions such as a line-limit of 25 lines per function and 5 functions per file. (Those particular limits negligible in this project because most of these are just minor utilities)
 
 Any other 42 student wishing to seek ideas for how to solve some of these problems, you are very much encouraged to learn why these functions work, and become familiar enough so that they are easily replicatable off memory.
+
+Some of these functions have protections from null, so that they don't crash if they receive such a value. Although I am considering removing them to help prevent major issues in the development of programs do not pass silently.
