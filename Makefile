@@ -11,9 +11,12 @@
 # **************************************************************************** #
 
 NAME = libft.a
-CC = gcc
-CFLAGS = -c -Wall -Wextra -Werror
-SRCS = ft_abs.c \
+
+INC_DIR = ./includes
+SRC_DIR = ./src
+OBJ_DIR = ./obj
+
+SRC_FILES = ft_abs.c \
 			ft_atoi.c \
 			ft_bzero.c \
 			ft_isalnum.c \
@@ -29,9 +32,11 @@ SRCS = ft_abs.c \
 			ft_lstcount.c \
 			ft_lstdel.c \
 			ft_lstdelone.c \
+			ft_lstdelone_f.c \
 			ft_lstiter.c \
 			ft_lstmap.c \
 			ft_lstnew.c \
+			ft_lstpush.c \
 			ft_memalloc.c \
 			ft_memccpy.c \
 			ft_memchr.c \
@@ -40,6 +45,7 @@ SRCS = ft_abs.c \
 			ft_memdel.c \
 			ft_memmove.c \
 			ft_memset.c \
+			ft_mod.c \
 			ft_putchar.c \
 			ft_putchar_fd.c \
 			ft_putendl.c \
@@ -49,6 +55,7 @@ SRCS = ft_abs.c \
 			ft_putstr.c \
 			ft_putstr_fd.c \
 			ft_realloc.c \
+			ft_stpncpy.c \
 			ft_strcat.c \
 			ft_strchr.c \
 			ft_strclr.c \
@@ -78,8 +85,12 @@ SRCS = ft_abs.c \
 			ft_tolower.c \
 			ft_toupper.c \
 			ft_wordcount.c
-OBJ = $(SRCS:%.c=%.o)
-HEADER = ./libft.h
+SRC = $(addprefix $(SRC_DIR)/,$(SRC_FILES))
+OBJ = $(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
+HEADER = $(INC_DIR)/libft.h
+
+CC = gcc
+CFLAGS = -c -Wall -Wextra -Werror
 
 AR = ar
 ARFLAGS = rcs
@@ -87,9 +98,9 @@ ARFLAGS = rcs
 $(NAME): $(OBJ)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJ)
 
-$(OBJ): $(SRCS)
-	$(CC) $(CFLAGS) $(SRCS) -I $(HEADER)
-	
+$(OBJ): $(SRC)
+	$(CC) $(CFLAGS) -I$(INC_DIR) -o $@ $<
+
 all: $(NAME)
 
 clean:
