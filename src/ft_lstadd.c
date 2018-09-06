@@ -12,6 +12,10 @@
 
 #include <libft.h>
 
+/*
+** Adds a new list to the front of alst
+*/
+
 void	ft_lstadd(t_list **alst, t_list *new)
 {
 	t_list *old;

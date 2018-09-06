@@ -12,9 +12,9 @@
 
 NAME = libft.a
 
-INC_DIR = ./includes
-SRC_DIR = ./src
-OBJ_DIR = ./obj
+INC_DIR = ./includes/
+SRC_DIR = ./src/
+OBJ_DIR = ./obj/
 
 SRC_FILES = ft_abs.c \
 			ft_atoi.c \
@@ -23,6 +23,7 @@ SRC_FILES = ft_abs.c \
 			ft_isalpha.c \
 			ft_isascii.c \
 			ft_isdigit.c \
+			ft_isempty.c \
 			ft_islower.c \
 			ft_isprint.c \
 			ft_isupper.c \
@@ -85,8 +86,7 @@ SRC_FILES = ft_abs.c \
 			ft_tolower.c \
 			ft_toupper.c \
 			ft_wordcount.c
-SRC = $(addprefix $(SRC_DIR)/,$(SRC_FILES))
-OBJ = $(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
+OBJ = $(SRC_FILES:%.c=$(OBJ_DIR)%.o)
 HEADER = $(INC_DIR)/libft.h
 
 CC = gcc
@@ -95,20 +95,23 @@ CFLAGS = -c -Wall -Wextra -Werror
 AR = ar
 ARFLAGS = rcs
 
-$(NAME): $(OBJ)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJ)
-
-$(OBJ): $(SRC)
-	$(CC) $(CFLAGS) -I$(INC_DIR) -o $@ $<
-
 all: $(NAME)
 
+$(NAME): $(OBJ)
+	@$(AR) $(ARFLAGS) $(NAME) $(OBJ)
+
+$(OBJ): $(OBJ_DIR)%.o: $(SRC_DIR)%.c mkdir
+	@$(CC) $(CFLAGS) -I$(INC_DIR) -o $@ $<
+
+mkdir:
+	mkdir obj
+
 clean:
-	rm -f $(OBJ)
+	@rm -Rf $(OBJ_DIR)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all 
 
-.PHONY: clear, fclean, all, re
+.PHONY: clear, fclean, all, re, mkdir

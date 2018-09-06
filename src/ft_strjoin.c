@@ -12,6 +12,11 @@
 
 #include <libft.h>
 
+/*
+** Allocates a "Fresh" malloced string, null terminated
+** New string contains the concat of s1 and s2
+*/
+
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*out;

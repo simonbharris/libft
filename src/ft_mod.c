@@ -19,7 +19,7 @@ int		ft_mod(int nbr, int mod)
 
 	i = 0;
 	n = 0;
-	while(i < nbr)
+	while (i < nbr)
 	{
 		n = n + 1 == mod ? 0 : n + 1;
 		i++;

@@ -20,7 +20,7 @@ void	*ft_realloc(void **ptr, size_t old_size, size_t new_size)
 		return (NULL);
 	new = ft_memalloc(new_size);
 	new = ft_memcpy(new, *ptr, (old_size < new_size ? old_size : new_size));
-	ft_memdel(ptr);
+	ft_memdel(*ptr);
 	*ptr = new;
 	return (new);
 }
