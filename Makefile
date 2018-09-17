@@ -85,7 +85,8 @@ SRC_FILES = ft_abs.c \
 			ft_strtrim.c \
 			ft_tolower.c \
 			ft_toupper.c \
-			ft_wordcount.c
+			ft_wordcount.c \
+			get_next_line.c
 OBJ = $(SRC_FILES:%.c=$(OBJ_DIR)%.o)
 HEADER = $(INC_DIR)/libft.h
 
@@ -95,16 +96,18 @@ CFLAGS = -c -Wall -Wextra -Werror
 AR = ar
 ARFLAGS = rcs
 
-all: $(NAME)
+all: mkdir $(NAME) 
 
 $(NAME): $(OBJ)
 	@$(AR) $(ARFLAGS) $(NAME) $(OBJ)
 
-$(OBJ): $(OBJ_DIR)%.o: $(SRC_DIR)%.c mkdir
+$(OBJ): $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@$(CC) $(CFLAGS) -I$(INC_DIR) -o $@ $<
 
-mkdir:
-	mkdir obj
+mkdir: $(OBJ_DIR)
+	
+$(OBJ_DIR):
+	@mkdir obj
 
 clean:
 	@rm -Rf $(OBJ_DIR)
