@@ -1,5 +1,5 @@
 # libft
-Libft project from 42
+Libft project from 42 + Extra projects as I move on in the cirriculum
 
 
 ## First project as a Cadet.
