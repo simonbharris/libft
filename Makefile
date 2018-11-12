@@ -6,15 +6,15 @@
 #    By: sharris <sharris@student.42.us.org>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/09 18:59:28 by sharris           #+#    #+#              #
-#    Updated: 2018/07/09 18:59:28 by sharris          ###   ########.fr        #
+#    Updated: 2018/11/12 01:02:38 by sharris          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-INC_DIR = ./includes/
-SRC_DIR = ./src/
-OBJ_DIR = ./obj/
+INC_DIR = includes/
+SRC_DIR = src/
+OBJ_DIR = obj/
 
 SRC_FILES = ft_abs.c \
 			ft_atoi.c \
@@ -90,30 +90,38 @@ SRC_FILES = ft_abs.c \
 OBJ = $(SRC_FILES:%.c=$(OBJ_DIR)%.o)
 HEADER = $(INC_DIR)/libft.h
 
+FT_PF_DIR = $(SRC_DIR)ft_printf/
+FT_PRINTF = $(FT_PF_DIR)libftprintf.a
+
 CC = gcc
 CFLAGS = -c -Wall -Wextra -Werror
 
 AR = ar
 ARFLAGS = rcs
 
-all: mkdir $(NAME) 
+all: mkdir $(NAME) $(FT_PRINTF)
 
 $(NAME): $(OBJ)
-	@$(AR) $(ARFLAGS) $(NAME) $(OBJ)
+	$(AR) $(ARFLAGS) $(NAME) $(OBJ)
 
 $(OBJ): $(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	@$(CC) $(CFLAGS) -I$(INC_DIR) -o $@ $<
+	$(CC) $(CFLAGS) -I$(INC_DIR) -o $@ $<
 
 mkdir: $(OBJ_DIR)
 	
 $(OBJ_DIR):
-	@mkdir obj
+	mkdir obj
+
+$(FT_PRINTF):
+	make -C $(FT_PF_DIR)
 
 clean:
-	@rm -Rf $(OBJ_DIR)
+	rm -Rf $(OBJ_DIR)
+	rm -Rf $(FT_PF_DIR)obj/
 
 fclean: clean
-	@rm -f $(NAME)
+	rm -f $(NAME)
+	rm -f $(FT_PRINTF)
 
 re: fclean all 
 
