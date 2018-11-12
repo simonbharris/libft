@@ -3,6 +3,8 @@ Libft project from 42 + Extra projects as I move on in the cirriculum
 
 NOTE: -- There are extra functions and other helpful projects have been added to my libft since it was first created, such as ft_printf.
 
+Check my includes/libft.h for a list of my extra functions. (Does not include GetNextLine or ft_printf)
+
 ## First project as a Cadet.
 
 At 42 Silicon Valley, cadets are those that have successfully passed and survived the harsh Piscine, also known as their intensive basic training, and was welcomed into their 1-3 year program.
