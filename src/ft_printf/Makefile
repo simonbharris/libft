@@ -6,7 +6,7 @@
 #    By: sharris <sharris@student.42.us.org>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/19 15:50:45 by sharris           #+#    #+#              #
-#    Updated: 2018/11/12 01:03:15 by sharris          ###   ########.fr        #
+#    Updated: 2018/11/12 01:10:41 by sharris          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,10 +72,10 @@ LIBFT = -L $(LIBFT_DIR) -l ft
 
 OBJ_DIR = obj/
 OBJ = $(SRC_FILES:%.c=$(OBJ_DIR)%.o)
-INC = -I includes/
+INC_DIR = ../../includes/
+INC = -I $(INC_DIR)
 
 LIBFT_OBJ = $(LIBFT_SRC:$(LIBFT_DIR)%.c=$(LIBFT_SRC)obj/%.o)
-LIBFT_INC = -I $(LIBFT_DIR)includes
 
 CC = gcc
 WFLAGS = -Wall -Wextra -Werror
@@ -86,7 +86,7 @@ ARFLAGS = rcs
 all: $(NAME)
 
 $(OBJ): $(OBJ_DIR)%.o : ./$(SRC_DIR)%.c
-	$(CC) -c $(INC) $(LIBFT_INC) $< -o $@
+	$(CC) -c $(INC) $< -o $@
 
 $(NAME): $(OBJ_DIR) $(OBJ) $(LIBFT_OBJ)
 	$(AR) $(ARFLAGS) $(NAME) $(LIBFT_OBJ) $(OBJ) 
@@ -99,11 +99,9 @@ $(OBJ_DIR):
 
 clean:
 	rm -Rf $(OBJ_DIR)
-	make clean -C $(LIBFT_DIR)
 
 fclean: clean
 	rm -f $(NAME)
-	make fclean -C $(LIBFT_DIR)
 
 re: fclean all
 

@@ -6,7 +6,7 @@
 #    By: sharris <sharris@student.42.us.org>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/09 18:59:28 by sharris           #+#    #+#              #
-#    Updated: 2018/11/12 01:02:38 by sharris          ###   ########.fr        #
+#    Updated: 2018/11/12 01:08:23 by sharris          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,7 +91,7 @@ OBJ = $(SRC_FILES:%.c=$(OBJ_DIR)%.o)
 HEADER = $(INC_DIR)/libft.h
 
 FT_PF_DIR = $(SRC_DIR)ft_printf/
-FT_PRINTF = $(FT_PF_DIR)libftprintf.a
+FT_PRINTF = libftprintf.a
 
 CC = gcc
 CFLAGS = -c -Wall -Wextra -Werror
