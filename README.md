@@ -1,6 +1,6 @@
 # libft
 Libft project from 42 + Extra projects as I move on in the cirriculum
-
+NOTE: -- There are extra functions and other helpful projects have been added to my libft since it was first created, such as ft_printf.
 
 ## First project as a Cadet.
 
