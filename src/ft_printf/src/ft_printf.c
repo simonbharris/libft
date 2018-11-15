@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <ft_printf.h>
 
 static int	putfmt(const char **afmt, va_list ap, int *numwrite)
 {
