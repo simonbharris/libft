@@ -12,15 +12,14 @@
 
 #include <libft.h>
 
-t_list *ft_strstolsts(char **strings)
+t_list	*ft_strstolsts(char **strings)
 {
-	t_list *start;
-	t_list *new;
-	int i;
+	t_list	*start;
+	int		i;
 
 	i = -1;
 	start = NULL;
 	while (strings[++i])
 		ft_lstadd(&start, ft_lstnew(strings[i], ft_strlen(strings[i]) + 1));
-	return(start);
+	return (start);
 }
