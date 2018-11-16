@@ -133,5 +133,6 @@ long long		ft_hextoi(char *str);
 char			*ft_strndup(const char *str, int n);
 int				ft_parrlen(void **arr);
 long long		ft_pow(long long nbr, int p);
+t_list			*ft_strstolsts(char **strings);
 
 #endif
