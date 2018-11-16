@@ -86,6 +86,7 @@ SRC_FILES = ft_abs.c \
 			ft_strnstr.c \
 			ft_strrchr.c \
 			ft_strsplit.c \
+			ft_strstolsts.c \
 			ft_strstr.c \
 			ft_strsub.c \
 			ft_strtrim.c \
