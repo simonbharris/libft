@@ -49,6 +49,7 @@ SRC_FILES = ft_abs.c \
 			ft_memdel.c \
 			ft_memmove.c \
 			ft_memset.c \
+			ft_merge_sort.c \
 			ft_mod.c \
 			ft_putchar.c \
 			ft_putchar_fd.c \
@@ -100,7 +101,9 @@ SRC_FILES = ft_abs.c \
 			ft_wstrlen.c \
 			ft_wstrnew.c \
 			ft_wstrsub.c \
-			get_next_line.c
+			get_next_line.c \
+			merge_strcmp_f.c
+
 OBJ = $(SRC_FILES:%.c=$(OBJ_DIR)%.o)
 HEADER = $(INC_DIR)/libft.h
 

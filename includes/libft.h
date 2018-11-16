@@ -135,4 +135,11 @@ int				ft_parrlen(void **arr);
 long long		ft_pow(long long nbr, int p);
 t_list			*ft_strstolsts(char **strings);
 
+/*
+** Merge sort functs
+*/
+
+t_list *ft_merge_sort(t_list *head, int cmp(void *, void *));
+int merge_strcmp_f(void *s1, void *s2);
+
 #endif
