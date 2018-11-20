@@ -50,7 +50,7 @@ int			add_num_prec(t_pfdrcv drcv, char **astr, char **hold)
 		*astr = ft_strffjoin(hold, astr);
 		return (1);
 	}
-	return (0);
+	return (1);
 }
 
 /*
@@ -65,12 +65,11 @@ static void	pf_prec_n(t_pfdrcv drcv, char **astr, char **hold)
 {
 	if (is_num_zeroprec(drcv, astr))
 		return ;
-	if (add_num_prec(drcv, astr, hold))
-		return ;
 	else if ((!(drcv.oflags & PFO_LPD))
 	&& drcv.oflags & PFO_PAD0 && (int)ft_strlen(*astr) < drcv.mfw)
 		pf_zero(drcv, astr);
-	else if ((drcv.oflags & PFO_X) && (drcv.oflags & PFO_ALT))
+	add_num_prec(drcv, astr, hold);
+	if ((drcv.oflags & PFO_X) && (drcv.oflags & PFO_ALT))
 	{
 		if (!is_hexzero(*astr))
 		{
