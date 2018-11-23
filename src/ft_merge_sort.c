@@ -12,7 +12,7 @@
 
 #include <libft.h>
 
-#define SORT_ORDER ((rev_flag > 0) ? -1 : 1)
+#define MRG_SRT_REV_FLAG ((rev_flag > 0) ? -1 : 1)
 
 /*
 ** ft_merge_sort -- Uses the merge sort method to sort a linked list.
@@ -31,7 +31,7 @@ static t_list	*merge_lists(t_list *t1, t_list *t2,
 	node = &head;
 	while (t1 && t2)
 	{
-		if ((SORT_ORDER * cmp(t1->content, t2->content)) >= 0)
+		if ((MRG_SRT_REV_FLAG * cmp(t1->content, t2->content)) >= 0)
 		{
 			node->next = t2;
 			t2 = t2->next;
