@@ -31,7 +31,7 @@ static t_list	*merge_lists(t_list *t1, t_list *t2,
 	node = &head;
 	while (t1 && t2)
 	{
-		if ((MRG_SRT_REV_FLAG * cmp(t1->content, t2->content)) >= 0)
+		if ((MRG_SRT_REV_FLAG * cmp(t1->content, t2->content)) > 0)
 		{
 			node->next = t2;
 			t2 = t2->next;
@@ -53,6 +53,7 @@ t_list			*ft_merge_sort(t_list *head,
 	t_list *pre;
 	t_list *slow;
 	t_list *fast;
+
 
 	pre = head;
 	fast = head;
