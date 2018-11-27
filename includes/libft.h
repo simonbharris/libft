@@ -134,14 +134,13 @@ char			*ft_strndup(const char *str, int n);
 int				ft_parrlen(void **arr);
 long long		ft_pow(long long nbr, int p);
 t_list			*ft_strstolsts(char **strings);
-t_list			*ft_lstpop(t_list **alst, int ind);
 
 /*
 ** Merge sort functs
 */
 
 t_list			*ft_merge_sort(t_list *head,
-								 int cmp(void *, void *), int rev_flag);
+								int cmp(void *, void *), int rev_flag);
 int				merge_strcmp_f(void *s1, void *s2);
 
 #endif

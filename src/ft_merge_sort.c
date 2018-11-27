@@ -18,11 +18,15 @@
 ** ft_merge_sort -- Uses the merge sort method to sort a linked list.
 ** Merge sort takes a link-list of values,
 ** and sorts them with passed function, cmp, which defines how they are sorted.
+**
+** cmp should return a non-zero if t1 and t2 are not equal.
+** a return of 0 for cmp means t1 and t2 are equal (Similar to strcmp)
+**
 ** if rev_flag == 1, the return will reverse the cmp results.
 */
 
 static t_list	*merge_lists(t_list *t1, t_list *t2,
-							  int (cmp)(void *, void *), int rev_flag)
+							int (cmp)(void *, void *), int rev_flag)
 {
 	t_list head;
 	t_list *node;
@@ -48,12 +52,11 @@ static t_list	*merge_lists(t_list *t1, t_list *t2,
 }
 
 t_list			*ft_merge_sort(t_list *head,
-								 int cmp(void *, void *), int rev_flag)
+								int cmp(void *, void *), int rev_flag)
 {
 	t_list *pre;
 	t_list *slow;
 	t_list *fast;
-
 
 	pre = head;
 	fast = head;

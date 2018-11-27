@@ -17,7 +17,8 @@
 ** returns the diff of the last compared characters, thus..
 ** 0 == match, positive = s1 is "higher", negative s2 is "higher"
 */
-int		ft_strcmp(const char *s1, const char *s2)
+
+int	ft_strcmp(const char *s1, const char *s2)
 {
 	unsigned char *u1;
 	unsigned char *u2;

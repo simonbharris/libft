@@ -39,7 +39,6 @@ SRC_FILES = ft_abs.c \
 			ft_lstiter.c \
 			ft_lstmap.c \
 			ft_lstnew.c \
-			ft_lstpop.c \
 			ft_lstpush.c \
 			ft_max.c \
 			ft_memalloc.c \

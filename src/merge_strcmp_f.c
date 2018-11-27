@@ -12,12 +12,12 @@
 
 #include <libft.h>
 
-int merge_strcmp_f(void *s1, void *s2)
+int	merge_strcmp_f(void *s1, void *s2)
 {
 	char *str1;
 	char *str2;
 
 	str1 = s1;
 	str2 = s2;
-	return(ft_strcmp(s1, s2));	
+	return (ft_strcmp(s1, s2));
 }
