@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putupper.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sharris <sharris@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/12 14:12:55 by sharris           #+#    #+#             */
-/*   Updated: 2018/07/12 14:12:55 by sharris          ###   ########.fr       */
+/*   Created: 2019/03/01 04:26:19 by sharris           #+#    #+#             */
+/*   Updated: 2019/03/01 04:26:26 by sharris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	ft_putupper(char *str)
 {
-	unsigned char		*d;
-	unsigned const char	*s;
-	size_t				i;
-
-	if (src == NULL)
-		return (dst);
-	d = dst;
-	s = src;
-	i = 0;
-	while (i++ < n)
+	while (*str)
 	{
-		*d = *s;
-		d++;
-		s++;
+		*str >= 'a' && *str <= 'z' ? ft_putchar(*str - 32) : ft_putchar(*str);
+		str++;
 	}
-	return (dst);
 }

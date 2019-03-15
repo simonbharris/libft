@@ -6,7 +6,7 @@
 #    By: sharris <sharris@student.42.us.org>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/09 18:59:28 by sharris           #+#    #+#              #
-#    Updated: 2018/11/12 01:08:23 by sharris          ###   ########.fr        #
+#    Updated: 2019/02/22 21:02:25 by sharris          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,6 @@ SRC_FILES = ft_abs.c \
 			ft_lstiter.c \
 			ft_lstmap.c \
 			ft_lstnew.c \
-			ft_lstpop.c \
 			ft_lstpush.c \
 			ft_max.c \
 			ft_memalloc.c \
@@ -61,6 +60,7 @@ SRC_FILES = ft_abs.c \
 			ft_putstr.c \
 			ft_putwstr.c \
 			ft_putstr_fd.c \
+			ft_putupper.c \
 			ft_realloc.c \
 			ft_stpncpy.c \
 			ft_strcat.c \
@@ -114,32 +114,40 @@ FT_PRINTF = libftprintf.a
 CC = gcc
 CFLAGS = -c -Wall -Wextra -Werror
 
+CK = \033[K
+CG = \033[92m
+CY = \033[93m
+CE = \033[0m
+CR = \033[1A
+LOGO = $(CK)$(CG)[Libft]
+
 AR = ar
 ARFLAGS = rcs
 
-all: mkdir $(NAME) $(FT_PRINTF)
+all: $(OBJ_DIR) $(NAME) $(FT_PRINTF)
 
 $(NAME): $(OBJ)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJ)
+	@echo "$(LOGO) Building:$(CY) Libft $(CE)$(CR)"
+	@$(AR) $(ARFLAGS) $(NAME) $(OBJ)
+	@echo "$(LOGO) Built:$(CY) Libft $(CE)"
 
 $(OBJ): $(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	$(CC) $(CFLAGS) -I$(INC_DIR) -o $@ $<
+	@echo "$(LOGO) Compiling:$(CY) $@ $(CE)$(CR)"
+	@$(CC) $(CFLAGS) -I$(INC_DIR) -o $@ $<
 
-mkdir: $(OBJ_DIR)
-	
 $(OBJ_DIR):
-	mkdir obj
+	@mkdir -p obj
 
 $(FT_PRINTF):
-	make -C $(FT_PF_DIR)
+	@make -C $(FT_PF_DIR)
 
 clean:
-	rm -Rf $(OBJ_DIR)
-	rm -Rf $(FT_PF_DIR)obj/
+	@rm -Rf $(OBJ_DIR)
+	@rm -Rf $(FT_PF_DIR)obj/
 
 fclean: clean
-	rm -f $(NAME)
-	rm -f $(FT_PRINTF)
+	@rm -f $(NAME)
+	@rm -f $(FT_PRINTF)
 
 re: fclean all 
 
