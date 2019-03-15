@@ -18,6 +18,7 @@ OBJ_DIR = obj/
 
 SRC_FILES = ft_abs.c \
 			ft_atoi.c \
+			ft_atoll.c \
 			ft_bzero.c \
 			ft_isalnum.c \
 			ft_isalpha.c \

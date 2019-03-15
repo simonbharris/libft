@@ -17,6 +17,9 @@
 # include <string.h>
 # include <stdlib.h>
 
+# define TRUE 1
+# define FALSE 0
+
 # define MALCHECK(x) if ((x) == NULL) { return (NULL); }
 
 typedef struct	s_list
@@ -135,6 +138,7 @@ int				ft_parrlen(void **arr);
 long long		ft_pow(long long nbr, int p);
 t_list			*ft_strstolsts(char **strings);
 void			ft_putupper(char *str);
+long long		ft_atoll(const char *str);
 
 /*
 ** Merge sort functs
